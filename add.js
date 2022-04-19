@@ -1,7 +1,9 @@
 const option1 = document.getElementById("option1"),
       option2 = document.getElementById("option2"),
-      option3 = document.getElementById("option3"),
-      audio = document.getElementById("myAudio"); 
+      option3 = document.getElementById("option3");
+
+      var myAudioWrong = document.getElementById("myAudioWrong");
+      var myAudioRight = document.getElementById("myAudioRight")
 var answer = 0;
 
 function generate_equation(){ 
@@ -13,6 +15,7 @@ function generate_equation(){
       switchAnswers = [];
 
   answer = eval(num1 + num2);
+
   
   document.getElementById("num1").innerHTML = num1; 
   document.getElementById("num2").innerHTML = num2; 
@@ -30,23 +33,33 @@ function generate_equation(){
 
 option1.addEventListener("click", function(){
     if(option1.innerHTML == answer){
+      myAudioRight.play(); 
       generate_equation();
+
+    }else{
+      myAudioWrong.play();
     }
-      audio.play();
 });
 
 option2.addEventListener("click", function(){
     if(option2.innerHTML == answer){
+      myAudioRight.play(); 
       generate_equation();
+
+    }else{
+      myAudioWrong.play();
     }
-      audio.play();
+    
 });
 
 option3.addEventListener("click", function(){
     if(option3.innerHTML == answer){
+      myAudioRight.play(); 
       generate_equation();
+
+    }else{
+      myAudioWrong.play();
     }
-      audio.play();
 });
 
 generate_equation()
